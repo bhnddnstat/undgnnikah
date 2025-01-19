@@ -73,6 +73,14 @@ body::after {
   animation: contentFadeIn 1s ease-out 1s forwards;
 }
 
+.page-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px;
+  margin: 30px 0;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
 .ornament {
   position: absolute;
   width: 100px;
@@ -233,9 +241,9 @@ body::after {
 }
 
 .maaf {
-  font-size: 12px;
+  font-size: 11px;
   line-height: 1;
-  margin-top: 5px;
+  margin-top: 8px;
 }
 
 .floating {
