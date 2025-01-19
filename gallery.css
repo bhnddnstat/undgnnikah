@@ -1,0 +1,74 @@
+.page-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  padding: 20px;
+}
+
+.gallery-item {
+  aspect-ratio: 1;
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.placeholder-image {
+  background: none; /* Pastikan latar belakang tidak ada konflik dengan gambar */
+  border: 1px solid #D4AF37;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.placeholder-image img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  position: relative;
+  border-radius: 8px;
+  z-index: 1;
+}
+
+.placeholder-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, black, transparent);
+  z-index: 0;
+  pointer-events: none; /* Ensure gradient doesn't block interactions */
+}
+
+.placeholder-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, black, transparent, transparent); /* 50% transparan putih */
+  z-index: 2; /* Pastikan layer ini berada di atas */
+  pointer-events: none;
+}
+
+.placeholder-image:hover {
+  background: rgba(212, 175, 55, 0.2);
+  transform: scale(1.05);
+}
