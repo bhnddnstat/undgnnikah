@@ -81,6 +81,13 @@ body::after {
   margin: 10px
 }
 
+@media (max-width: 768px) {
+  .ornament {
+    width: 50px;
+    height: 50px;
+  }
+}
+
 .top-left {
   top: 20px;
   left: 20px;
@@ -160,7 +167,7 @@ body::after {
 
 @media (max-width: 768px) {
   .names {
-    margin-top: 60px;
+    margin-top: 80px;
     font-size: 35px;
   }
 }
@@ -207,6 +214,7 @@ body::after {
 
 @media (max-width: 768px) {
   .tamu {
+    font-size: 16px;
     margin-top: 20px;
   }
 }
@@ -219,7 +227,7 @@ body::after {
 
 @media (max-width: 768px) {
   .namatamu {
-    font-size: 25px;
+    font-size: 22px;
     margin-top: 10px;
   }
 }
@@ -272,6 +280,14 @@ body::after {
   transform-style: preserve-3d;
 }
 
+@media (max-width: 768px) {
+  .rsvp-button {
+    margin-top: 30px;
+    padding: 12px 30px;
+    font-size: 1em;
+  }
+}
+
 .rsvp-button::before {
   content: '';
   position: absolute;
@@ -317,19 +333,6 @@ body::after {
   100% {
     opacity: 0;
     transform: translate(-50%, -50%) scale(2);
-  }
-}
-
-@media (max-width: 768px) {
-
-  .ornament {
-    width: 60px;
-    height: 60px;
-  }
-  
-  .rsvp-button {
-    padding: 12px 30px;
-    font-size: 1em;
   }
 }
 
