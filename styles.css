@@ -1,15 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Great+Vibes&display=swap');
 
+/* Reset dan pengaturan dasar */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow: hidden;
+}
+
+.fontku {
+  font-family: 'Cormorant Garamond', serif;
 }
 
 body {
   position: relative;
   background-color: black;
-  background-image: url('img/bgku.png');
+  background-image: url('img/bgku.png'); /* Gambar latar belakang */
   object-position: bottom;
   background-size: cover;
   background-position: center;
@@ -30,111 +36,301 @@ body::after {
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* Warna hitam dengan transparansi 50% */
+  background-color: rgba(0, 0, 0, 0.5); /* Transparansi hitam */
   z-index: 1;
-}
-
-.content {
-  position: relative;
-  z-index: 2;
 }
 
 /* Media query untuk layar desktop */
 @media only screen and (min-width: 768px) {
   body {
-    background-image: url('img/bgku.png'); /* Ganti dengan URL gambar untuk tampilan desktop */
     background-size: contain; /* Atau gunakan 'cover' sesuai kebutuhan */
-    background-position: top; /* Posisi gambar sesuai tampilan desktop */
     background-repeat: no-repeat;
   }
 }
 
+/* Container utama */
 .container {
   position: relative;
   width: 100%;
   max-width: 500px;
   min-height: 100vh;
-  padding: 40px 20px 80px;
+  padding: 0px 0px 0px;
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
-.glitter-container {
+/* Konten utama */
+.content {
+  position: relative;
+  z-index: 2;
+}
+
+.contents {
+  opacity: 0;
+  z-index: 2;
+  animation: contentFadeIn 1s ease-out 1s forwards;
+}
+
+.ornament {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border: 2px solid #bf9b30;
+  margin: 10px
+}
+
+.top-left {
+  top: 20px;
+  left: 20px;
+  border-right: none;
+  border-bottom: none;
+  animation: ornamentFadeIn 1s ease-out 1s forwards;
+  opacity: 0;
+}
+
+.top-right {
+  top: 20px;
+  right: 20px;
+  border-left: none;
+  border-bottom: none;
+  animation: ornamentFadeIn 1s ease-out 1s forwards;
+  opacity: 0;
+}
+
+.bottom-left {
+  bottom: 20px;
+  left: 20px;
+  border-right: none;
+  border-top: none;
+  animation: ornamentFadeIn 1s ease-out 1s forwards;
+  opacity: 0;
+}
+
+.bottom-right {
+  bottom: 20px;
+  right: 20px;
+  border-left: none;
+  border-top: none;
+  animation: ornamentFadeIn 1s ease-out 1s forwards;
+  opacity: 0;
+}
+
+@keyframes ornamentFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes contentFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.weddingof {
+  font-size: 25px;
+  text-align: center;
+  margin-bottom: 200px;
+  margin-top: 80px;
+}
+
+.names {
+  font-size: 40px;
+  margin-top: 20px;
+  margin-bottom: 1px;
+  font-weight: normal;
+  letter-spacing: 4px;
+  position: relative;
+  display: inline-block;
+  font-family: 'Great Vibes', cursive;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .names {
+    margin-top: 60px;
+    font-size: 35px;
+  }
+}
+
+.names::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background: #bf9b30;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s ease-out;
+}
+
+.names:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.divider {
+  margin: 1px auto;
+}
+
+.date {
+  font-size: 20px;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .date {
+    margin-bottom: 40px;
+  }
+}
+
+.tamu {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+  .tamu {
+    margin-top: 20px;
+  }
+}
+
+.namatamu {
+  font-size: 20px;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .namatamu {
+    font-size: 25px;
+    margin-top: 10px;
+  }
+}
+
+.maaf {
+  font-size: 12px;
+  line-height: 1;
+  margin-top: 5px;
+}
+
+.floating {
+  animation: floating 4s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardEntrance {
+  0% {
+    opacity: 0;
+    transform: rotateX(90deg) translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateX(0) translateY(0);
+  }
+}
+
+.rsvp-button {
+  margin-top: 20px;
+  position: relative;
+  background: transparent;
+  border: 2px solid #bf9b30;
+  color: #bf9b30;
+  padding: 10px 35px;
+  font-size: 1.2em;
+  letter-spacing: 2px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.rsvp-button::before {
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none;
-  z-index: 9999;
+  background: #bf9b30;
+  transform: translateX(-100%) skewX(-15deg);
+  transition: transform 0.4s cubic-bezier(0.3, 0.8, 0.2, 1);
+  z-index: -1;
 }
 
-.glitter {
+.rsvp-button:hover {
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(191, 155, 48, 0.2);
+}
+
+.rsvp-button:hover::before {
+  transform: translateX(0) skewX(-15deg);
+}
+
+.rsvp-button:active {
+  transform: translateY(0);
+}
+
+.rsvp-button .button-sparkle {
   position: absolute;
-  width: 60px;
-  top: 0;
-  bottom: 0;
-}
-
-.glitter.left {
-  left: 0;
-  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
-}
-
-.glitter.right {
-  right: 0;
-  background: linear-gradient(-90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
-}
-
-.header {
-  margin-bottom: 60px;
-}
-
-.names {
-  font-family: 'Great Vibes', cursive;
-  font-size: 1.5rem;
-  margin: 10px 0;
+  pointer-events: none;
+  background: radial-gradient(circle, #fff 10%, transparent 70%);
+  width: 100px;
+  height: 100px;
   opacity: 0;
-  transform: translateY(20px);
+  transform: translate(-50%, -50%) scale(0);
 }
 
-.and {
-  font-family: 'Great Vibes', cursive;
-  font-size: 2.5rem;
-  display: block;
-  margin: 20px 0;
-  opacity: 0;
-  transform: translateY(20px);
+@keyframes buttonSparkle {
+  0% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(2);
+  }
 }
 
-.details {
-  opacity: 0;
-  transform: translateY(20px);
-}
+@media (max-width: 768px) {
 
-.invite-text {
-  font-size: 1.2rem;
-  margin: 10px 0;
-}
-
-.date-time {
-  margin: 40px 0;
-}
-
-.date-time p {
-  margin: 10px 0;
-  font-size: 1.1rem;
-}
-
-.location {
-  margin-top: 40px;
-}
-
-.location p {
-  margin: 5px 0;
-  font-size: 1.1rem;
+  .ornament {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .rsvp-button {
+    padding: 12px 30px;
+    font-size: 1em;
+  }
 }
 
 .navbar {
@@ -172,91 +368,31 @@ body::after {
   color: #fff;
 }
 
-.save-date-btn {
-  position: relative;
-  margin-top: 40px;
-  padding: 15px 30px;
-  background: transparent;
-  border: 2px solid #D4AF37;
-  color: #D4AF37;
-  font-family: 'Playfair Display', serif;
-  font-size: 1.2rem;
-  cursor: pointer;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  opacity: 0;
-  transform: translateY(20px);
-}
 
-.save-date-btn .btn-text {
-  position: relative;
-  z-index: 2;
-  margin-right: 10px;
-}
-
-.save-date-btn .btn-icon {
-  position: relative;
-  z-index: 2;
-}
-
-.save-date-btn .btn-shine {
+/* Efek glitter */
+.glitter-container {
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    45deg,
-    transparent,
-    rgba(212, 175, 55, 0.1),
-    transparent
-  );
-  transform: translateX(-100%);
-  transition: transform 0.6s ease;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
 }
 
-.save-date-btn:hover {
-  background: rgba(212, 175, 55, 0.1);
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+.glitter {
+  position: absolute;
+  width: 60px;
+  top: 0;
+  bottom: 0;
 }
 
-.save-date-btn:hover .btn-shine {
-  transform: translateX(100%);
+.glitter.left {
+  left: 0;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
 }
 
-.save-date-btn:active {
-  transform: translateY(0);
-}
-
-@media (max-width: 480px) {
-  .names {
-    font-size: 2.5rem;
-  }
-  
-  .and {
-    font-size: 2rem;
-  }
-  
-  .invite-text {
-    font-size: 1rem;
-  }
-  
-  .date-time p,
-  .location p {
-    font-size: 0.9rem;
-  }
-  
-  .nav-item {
-    font-size: 0.65rem;
-  }
-
-  .nav-item i {
-    font-size: 0.9rem;
-  }
-  
-  .save-date-btn {
-    padding: 12px 25px;
-    font-size: 1rem;
-  }
+.glitter.right {
+  right: 0;
+  background: linear-gradient(-90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
 }
